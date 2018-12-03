@@ -20,12 +20,12 @@ function valor(x,ind){
 }
 
 function funcao(x){
-  return 10*Math.cos(x);
+  return 10*Math.cos(x/2);
 }
 
 let pop=[];
-for(let i=0;i<5000;i++){
-    let ind=core.geraNo("number",10);
+for(let i=0;i<50000;i++){
+    let ind=core.geraNo("number",5);
     let fit=0;
     for(let x=-10;x<=10;x+=0.5){
         let dif=funcao(x)-valor(x,ind);
@@ -46,9 +46,9 @@ for(let x=-15;x<=15;x+=0.1){
 
 
 console.log(pop[0].fit,core.expressao(pop[0].ind));
-let metades=core.corta(pop[0].ind);
-console.log(  metades.inicio.length,metades.fim.length);
+//let metades=core.corta(pop[0].ind);
+//console.log(  metades.inicio.length,metades.fim.length);
 //console.log(JSON.stringify(pop[0].ind,null,2));
-fs.writeFileSync("best.dot",core.getDot(metades.inicio[0])+core.getDot(metades.fim[0]),"utf-8");
+fs.writeFileSync("best.dot",core.getDot(pop[0].ind),"utf-8");
 
 fs.writeFileSync("best.csv",csv,"utf-8");
