@@ -1,0 +1,17 @@
+ digraph G {
+N380 [label="se_entao_senao"];
+N380 -> N375;
+N375 [label="diferente"];
+N375 -> N373;
+N373 [label="x"];
+N375 -> N374;
+N374 [label="0"];
+N380 -> N378;
+N378 [label="mult"];
+N378 -> N376;
+N376 [label="4"];
+N378 -> N377;
+N377 [label="8"];
+N380 -> N379;
+N379 [label="x"];
+}

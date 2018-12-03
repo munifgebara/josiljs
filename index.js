@@ -1,3 +1,5 @@
+const fs=require('fs');
+
 const core=require('./core');
 
 /*
@@ -23,7 +25,7 @@ function funcao(x){
 
 let pop=[];
 for(let i=0;i<100;i++){
-    let ind=core.geraNo("number",5);
+    let ind=core.geraNo("number",3);
     let fit=0;
     for(let x=-10;x<=10;x++){
         let dif=funcao(x)-valor(x,ind);
@@ -37,3 +39,7 @@ pop.sort((el1,el2)=>el1.fit-el2.fit);
 //pop.forEach(p=>console.log(p.fit,core.expressao(p.ind)));
 
 console.log(pop[0].fit,core.expressao(pop[0].ind));
+let metades=core.corta(pop[0].ind);
+console.log(  metades.inicio.length,metades.fim.length);
+//console.log(JSON.stringify(pop[0].ind,null,2));
+fs.writeFileSync("best.dot",core.getDot(metades.inicio[0])+core.getDot(metades.fim[0]),"utf-8");

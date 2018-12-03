@@ -1,0 +1,16 @@
+ digraph G23 {
+N23 [label="soma"];
+N23 -> N19;
+N19 [label="resto"];
+N19 -> N18;
+N18 [label="x"];
+N23 -> N22;
+N22 [label="mult"];
+N22 -> N20;
+N20 [label="x"];
+N22 -> N21;
+N21 [label="x"];
+}
+ digraph G17 {
+N17 [label="x"];
+}
