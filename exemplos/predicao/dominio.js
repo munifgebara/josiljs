@@ -1,5 +1,5 @@
 
-exports.fitness=x=>x*x+2*x+3;
+
 exports.entradas={x:"number"};
 exports.saidas={y:"number"};
 exports.constantes={number:[0,1,2,3,4,5,6,7,8,9],bol:[true,false]};
