@@ -20,14 +20,14 @@ function valor(x,ind){
 }
 
 function funcao(x){
-  return x*x+2*x+3;
+  return 10*Math.cos(x);
 }
 
 let pop=[];
-for(let i=0;i<100;i++){
-    let ind=core.geraNo("number",3);
+for(let i=0;i<5000;i++){
+    let ind=core.geraNo("number",10);
     let fit=0;
-    for(let x=-10;x<=10;x++){
+    for(let x=-10;x<=10;x+=0.5){
         let dif=funcao(x)-valor(x,ind);
         fit+=dif*dif;
     }
@@ -38,8 +38,17 @@ pop.sort((el1,el2)=>el1.fit-el2.fit);
 
 //pop.forEach(p=>console.log(p.fit,core.expressao(p.ind)));
 
+let csv="";
+for(let x=-15;x<=15;x+=0.1){
+    csv+=`${x},${funcao(x)},${valor(x,pop[0].ind)}\n`;
+  //console.log(`${x},${funcao(x)},${valor(x,pop[0].ind)}`);
+}
+
+
 console.log(pop[0].fit,core.expressao(pop[0].ind));
 let metades=core.corta(pop[0].ind);
 console.log(  metades.inicio.length,metades.fim.length);
 //console.log(JSON.stringify(pop[0].ind,null,2));
 fs.writeFileSync("best.dot",core.getDot(metades.inicio[0])+core.getDot(metades.fim[0]),"utf-8");
+
+fs.writeFileSync("best.csv",csv,"utf-8");

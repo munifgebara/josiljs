@@ -91,4 +91,4 @@ points.forEach((v,i)=>console.log(i,v));
 
 }
 
-combat(2,2);
+combat(1,2);
